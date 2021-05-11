@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Brand } from 'src/app/models/brand';
+import { Color } from 'src/app/models/color';
 import { BrandService } from 'src/app/services/brand.service';
 
 @Component({
@@ -10,6 +11,8 @@ import { BrandService } from 'src/app/services/brand.service';
 export class BrandComponent implements OnInit {
   brands: Brand[] = [];
   dataLoaded = false;
+  currentBrand:Brand;
+  deletedBrand:Brand;
   constructor(private brandService: BrandService) {}
 
   ngOnInit(): void {
@@ -22,5 +25,31 @@ export class BrandComponent implements OnInit {
       console.log(response);
       this.dataLoaded = true;
     });
+  }
+
+  setCurrentBrand(brand:Brand){
+    this.currentBrand=brand;
+  }
+
+  getCurrentBrandClass(brand:Brand){
+    if(brand==this.currentBrand){
+      return "list-group-item active";
+    }
+    else{
+      return "list-group-item";
+    }
+  }
+
+  deleteCurrentBrand(){
+  this.currentBrand=this.deletedBrand;
+  }
+
+  deleteCurrentBrandClass(){
+    if(this.deletedBrand==this.currentBrand){
+      return "list-group-item active";
+    }
+    else{
+      return "list-group-item";
+    }
   }
 }

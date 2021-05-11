@@ -6,15 +6,24 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 
-<table *ngIf="dataLoaded == true" class="table">
+<ul *ngIf="dataLoaded == true" class="list-group">
   <thead>
-    <tr>
-      <th>Id</th>
-      <th>Brand Name</th>
-    </tr>
+    <th>Brand Name</th>
   </thead>
-  <tr *ngFor="let brand of brands">
-    <td>{{ brand.id }}</td>
-    <td>{{ brand.name }}</td>
-  </tr>
-</table>
+  <li
+    (click)="deleteCurrentBrand()"
+    routerLink="/cars"
+    [class]="deleteCurrentBrandClass()"
+  >
+    Tüm Araçlar
+  </li>
+    <li
+      (click)="setCurrentBrand(brand)"
+      routerLink="/cars/brand/{{ brand.id }}"
+      *ngFor="let brand of brands"
+      [class]="getCurrentBrandClass(brand)"
+    >
+      {{ brand.name }}
+    </li>
+</ul>
+
