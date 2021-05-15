@@ -1,0 +1,60 @@
+<div
+  *ngIf="dataLoaded == false"
+  class="spinner-border text-secondary"
+  role="status"
+>
+  <span class="visually-hidden">Loading...</span>
+</div>
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button
+        class="accordion-button"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseOne"
+        aria-expanded="true"
+        aria-controls="collapseOne"
+      >
+        Markalar
+      </button>
+    </h2>
+    <div
+      id="collapseOne"
+      class="accordion-collapse collapse show"
+      aria-labelledby="headingOne"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body">
+        <div class="mb-3">
+          <label for="brandFilterText" class="form-label"></label>
+          <input
+            type="text"
+            [(ngModel)]="brandFilterText"
+            class="form-control"
+            id="brandFilterText"
+            placeholder="marka arayın..."
+          />
+        </div>
+
+        <ul *ngIf="dataLoaded == true" class="list-group">
+          <li
+            (click)="deleteCurrentBrand()"
+            routerLink="/cars"
+            [class]="deleteCurrentBrandClass()"
+          >
+            Tüm Araçlar
+          </li>
+          <li
+            (click)="setCurrentBrand(brand)"
+            *ngFor="let brand of brands | brandPipe: brandFilterText"
+            [class]="getCurrentBrandClass(brand)"
+          >
+            {{ brand.name }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

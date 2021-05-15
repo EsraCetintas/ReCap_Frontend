@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Brand } from 'src/app/models/brand';
-import { Color } from 'src/app/models/color';
 import { BrandService } from 'src/app/services/brand.service';
 
 @Component({
@@ -13,6 +12,7 @@ export class BrandComponent implements OnInit {
   dataLoaded = false;
   currentBrand:Brand;
   deletedBrand:Brand;
+  brandFilterText:"";
   constructor(private brandService: BrandService) {}
 
   ngOnInit(): void {

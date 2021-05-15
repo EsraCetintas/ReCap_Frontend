@@ -7,10 +7,27 @@
 </div>
 
 
+<div>
+  <thead>
+    <th>Araçlar</th>
+  </thead>
+  </div>
+<div class="mb-3">
+  <label for="filterText" class="form-label"></label>
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="araba markası arayın..."
+  />
+</div>
+
 <table class="table">
   <thead>
     <tr>
       <th>Detay</th>
+      <th>İd</th>
       <th>Marka</th>
       <th>Renk</th>
       <th>Model Yılı</th>
@@ -20,15 +37,21 @@
     </tr>
   </thead>
   <tbody>
-     
-    <tr        
-    (click)="setCurrentcar(car)"
-    *ngFor="let car of cars">
-      <td><button class="btn btn-primary btn-outline-primary rounded" routerLink="/car-detail/{{ car.carId }}"[class]="getCurrentCarClass(car)">Detaylar</button></td>
+    <tr (click)="setCurrentcar(car)" *ngFor="let car of cars | carPipe:filterText">
+      <td>
+        <button
+          class="btn btn-primary btn-outline-primary rounded"
+          routerLink="/car-detail/{{ car.carId }}"
+          [class]="getCurrentCarClass(car)"
+        >
+          Detaylar
+        </button>
+      </td>
+      <td>{{ car.carId }}</td>
       <td>{{ car.brandName }}</td>
       <td>{{ car.colorName }}</td>
       <td>{{ car.modelYear }}</td>
-      <td>{{ car.dailyPrice }}</td>
+      <td>{{ car.dailyPrice | currency: "TL" }}</td>
       <td>{{ car.description }}</td>
       <td>{{ car.carName }}</td>
     </tr>

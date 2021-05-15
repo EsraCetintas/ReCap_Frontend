@@ -1,40 +1,57 @@
 <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div *ngFor="let image of images let i = index" class="carousel-item active"
-              [ngClass]="{'active' :i == 0}">
-              <img src="https://localhost:44383/{{image.imagePath}}" class="d-block w-100" alt="..." />
-            </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div
+        id="carouselExampleSlidesOnly"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div
+            *ngFor="let image of images; let i = index"
+            class="carousel-item active"
+            [ngClass]="{ active: i == 0 }"
+          >
+            <img
+              src="https://localhost:44383/{{ image.imagePath }}"
+              class="d-block w-50"
+              alt="..."
+            />
           </div>
         </div>
       </div>
     </div>
-    <div *ngIf="currentCar" class=" row">
-      <div class="col-md-5">
-        <div class="row">
-          <table class="table">
-            <tbody>
-              <tr>
-                <th scope="row">Marka</th>
-                <td>{{currentCar.brandName}}</td>
-              </tr>
-              <tr>
-                <th scope="row">Model</th>
-                <td>{{currentCar.modelYear}}</td>
-              </tr>
-              <tr>
-                <th scope="row">Günlük Fiyat</th>
-                <td>{{currentCar.dailyPrice}}</td>
-              </tr>
-              <tr>
-                <th scope="row">Açıklama</th>
-                <td>{{currentCar.description}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+  </div>
+  <div *ngIf="currentCar" class="row">
+    <div class="col-md-5">
+      <div class="row">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th scope="row">İd</th>
+              <td>{{ currentCar.carId }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">Marka</th>
+              <td>{{ currentCar.brandName }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Model</th>
+              <td>{{ currentCar.modelYear }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Günlük Fiyat</th>
+              <td>{{ currentCar.dailyPrice }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Açıklama</th>
+              <td>{{ currentCar.description }}</td>
+            </tr>
+            <td><button type="button" class="btn btn-success">Success</button></td>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
+</div>
