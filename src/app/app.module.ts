@@ -17,6 +17,7 @@ import { BrandPipePipe } from './pipes/brand-pipe.pipe';
 import { ColorPipePipe } from './pipes/color-pipe.pipe';
 import { BrandComponent } from './components/brand/brand.component';
 import { ColorComponent } from './components/color/color.component';
+import { RentalAddComponent } from './components/rental-add/rental-add.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ColorComponent } from './components/color/color.component';
     ColorPipePipe,
     BrandComponent,
     ColorComponent,
+    RentalAddComponent,
   ],
   imports: [
     BrowserModule,

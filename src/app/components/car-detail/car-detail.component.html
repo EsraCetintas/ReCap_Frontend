@@ -1,57 +1,53 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <div
-        id="carouselExampleSlidesOnly"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-inner">
-          <div
+        <div class="carousel-inner col-md-6" >
+          <div 
             *ngFor="let image of images; let i = index"
             class="carousel-item active"
             [ngClass]="{ active: i == 0 }"
           >
             <img
               src="https://localhost:44383/{{ image.imagePath }}"
-              class="d-block w-50"
+              class="d-block w-50 mx-auto"
               alt="..."
             />
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div *ngIf="currentCar" class="row">
-    <div class="col-md-5">
-      <div class="row">
+    
+  <div *ngIf="currentCar">
         <table class="table">
           <tbody>
             <tr>
-              <th scope="row">İd</th>
+              <th>İd</th>
               <td>{{ currentCar.carId }}</td>
             </tr>
-
             <tr>
-              <th scope="row">Marka</th>
+              <th>Renk</th>
+              <td>{{ currentCar.colorName }}</td>
+            </tr>
+            <tr>
+              <th>Marka</th>
               <td>{{ currentCar.brandName }}</td>
             </tr>
             <tr>
-              <th scope="row">Model</th>
+              <th>Model İsmi</th>
+              <td>{{ currentCar.carName }}</td>
+            </tr>
+            <tr>
+              <th>Model</th>
               <td>{{ currentCar.modelYear }}</td>
             </tr>
             <tr>
-              <th scope="row">Günlük Fiyat</th>
+              <th>Günlük Fiyat</th>
               <td>{{ currentCar.dailyPrice }}</td>
             </tr>
             <tr>
-              <th scope="row">Açıklama</th>
+              <th>Açıklama</th>
               <td>{{ currentCar.description }}</td>
             </tr>
-            <td><button type="button" class="btn btn-success">Success</button></td>
           </tbody>
         </table>
-      </div>
-    </div>
   </div>
+<button  type="button" class="btn btn-success">Kirala</button>
+</div>
 </div>
