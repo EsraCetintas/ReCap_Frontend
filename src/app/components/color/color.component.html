@@ -21,15 +21,10 @@
         </div>
         
         <ul *ngIf="dataLoaded == true" class="list-group">
-          <li
-          (click)="deleteCurrentColor()"
-          routerLink="/cars"
-          [class]="deleteCurrentColorClass()"
-          >
-            Tüm Araçlar
-          </li>
+        
             <li
             (click)="setCurrentColor(color)"
+            routerLink="/cars/color/{{ color.id }}"
             *ngFor="let color of colors | colorPipe:colorFilterText"
             [class]="getCurrentColorClass(color)"
             >
@@ -40,4 +35,3 @@
     </div>
   </div>
 </div>
-

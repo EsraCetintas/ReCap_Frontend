@@ -7,6 +7,48 @@
 </div>
 
 
+    <div class="row col-md-12 mb-3">
+      
+      <div class="col-md-4" *ngIf="dataLoaded" > 
+        <label>MARKALAR</label>      
+        <select [(ngModel)]="brandId" class="form-select">
+          <option *ngFor="let brand of brands" [value]="brand.id">
+            {{ brand.name }}
+          </option>
+        </select>
+      </div>
+
+    
+      <div class="col-md-4">
+        <label>RENKLER</label>
+        <select [(ngModel)]="colorId" class="form-select">
+          <option *ngFor="let color of colors" [value]="color.id">
+            {{ color.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-md-2 mt-4">
+        <button type="button" 
+        *ngIf="colorId && brandId"
+          routerLink="/cars/color/{{ colorId }}/brand/{{ brandId }}"
+            class="btn btn-success w-100"
+        >
+          Filtrele
+        </button>
+      </div>
+
+      <div class="col-md-2 mt-4">
+        <button type="button" 
+        *ngIf="colorId && brandId"
+          routerLink="/cars"
+            class="btn btn-danger w-100"
+        >
+          Temizle
+        </button>
+      </div>
+      </div>
+
 <div>
   <thead>
     <th>Araçlar</th>
@@ -22,6 +64,9 @@
     placeholder="araba markası arayın..."
   />
 </div>
+
+
+
 
 <table class="table">
   <thead>

@@ -15,9 +15,8 @@ import { from } from 'rxjs';
 import { CarPipePipe } from './pipes/car-pipe.pipe';
 import { BrandPipePipe } from './pipes/brand-pipe.pipe';
 import { ColorPipePipe } from './pipes/color-pipe.pipe';
-import { FilterComponent } from './components/filter/filter.component';
-import { BrandComponent } from './components/filter/brand/brand.component';
-import { ColorComponent } from './components/filter/color/color.component';
+import { BrandComponent } from './components/brand/brand.component';
+import { ColorComponent } from './components/color/color.component';
 
 @NgModule({
   declarations: [
@@ -31,9 +30,8 @@ import { ColorComponent } from './components/filter/color/color.component';
     CarPipePipe,
     BrandPipePipe,
     ColorPipePipe,
-    FilterComponent,
     BrandComponent,
-    ColorComponent
+    ColorComponent,
   ],
   imports: [
     BrowserModule,
